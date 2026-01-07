@@ -135,26 +135,6 @@ The system enforces the following strict validation rules as found in the `Booki
 
 ---
 
-
-
-## 🛠 Installation Guide
-
-
-
-The project includes a convenient setup script in `composer.json` to automate the installation process.
-
-
-
-### 1. Clone the Repository
-
-```bash
-
-git clone <your-repo-url>
-
-cd train-booking-system
-
-
-
 ## About Laravel
 
 
@@ -254,4 +234,21 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## 🛠 Installation Guide
+
+
+
+The project includes a convenient setup script in `composer.json` to automate the installation process.
+
+
+
+### 1. Clone the Repository
+
+```bash
+
+git clone <your-repo-url>
+
+cd train-booking-system
+
 
