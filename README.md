@@ -7,7 +7,6 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 
 
@@ -250,5 +249,48 @@ The project includes a convenient setup script in `composer.json` to automate th
 git clone <your-repo-url>
 
 cd train-booking-system
+```
 
+### 2. Run Setup
+This single command installs dependencies, creates the `.env` file, generates keys, migrates the database, and builds frontend assets.
+```bash
+npm run build
+```
 
+### 3. Start The server
+```bash
+php artisan serve
+```
+
+MAKE SURE THAT:
+- XAMPP is downloaded and start the Apache and MySQL.
+- npm is installed.
+- composer is also downloaded; the link to install Composer is: https://getcomposer.org/
+
+### 🗄 Database Schema
+The application utilizes the following key tables:
+
+users: Stores authentication details and the role (e.g., 'admin').
+
+trains: Stores schedule information (destination, departure_time) and inventory (seats_available).
+
+bookings: Records the user_id, train_id, seats_booked, and the validated passport_number.
+
+audit_logs: Tracks critical actions (action, user_email, ip_address, details) for security monitoring.
+
+### 🔐 Security Architecture
+Input Validation: All user inputs, especially passport numbers, are validated against strict Regex patterns to prevent bad data entry and injection attacks.
+
+Audit Logging:
+
+Every successful booking triggers an entry in the audit_logs table.
+
+Logs capture the IP Address and User Email to ensure accountability.
+
+Middleware Protection:
+
+Administrative routes are protected by the auth and admin middleware, ensuring standard users cannot access sensitive logs.
+
+Password Policy:
+
+The system includes a StrongPassword rule class to enforce password complexity (e.g., requiring symbols and mixed case).
